@@ -3,30 +3,13 @@
 
 #define MAX 100
 
-bool is_symmetrisch (int [MAX][MAX]){
-    int matrix[MAX][MAX];
-    int n, m;
-
-    // Einlesen der Dimensionen der Matrix
-    printf("Geben Sie die Anzahl der Zeilen (max %d) ein: ", MAX);
-    scanf("%d", &n);
-    printf("Geben Sie die Anzahl der Spalten (max %d) ein: ", MAX);
-    scanf("%d", &m);
-
-    // Einlesen der Matrixelemente
-    printf("Geben Sie die Elemente der Matrix ein:\n");
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            scanf("%d", &matrix[i][j]);
-        }
-    }
-
-    // Überprüfen, ob die Matrix quadratisch ist
+bool is_symmetrisch(int matrix[MAX][MAX], int n, int m) {
+    // Symmetrie ist nur bei quadratischen Matrizen möglich
     if (n != m) {
         return false;
     }
 
-    // Überprüfen auf Symmetrie
+    // Vergleiche jedes Paar (i,j) mit (j,i)
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             if (matrix[i][j] != matrix[j][i]) {
@@ -34,14 +17,27 @@ bool is_symmetrisch (int [MAX][MAX]){
             }
         }
     }
-
-    return true;    
+    return true;
 }
 
-int main() {
+int main(void) {
     int matrix[MAX][MAX];
+    int n, m;
 
-    if (is_symmetrisch(matrix)) {
+    printf("Geben Sie die Anzahl der Zeilen (max %d) ein: ", MAX);
+    scanf("%d", &n);
+
+    printf("Geben Sie die Anzahl der Spalten (max %d) ein: ", MAX);
+    scanf("%d", &m);
+
+    printf("Geben Sie die Elemente der Matrix (%d x %d) ein:\n", n, m);
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+
+    if (is_symmetrisch(matrix, n, m)) {
         printf("Die Matrix ist symmetrisch.\n");
     } else {
         printf("Die Matrix ist nicht symmetrisch.\n");
@@ -49,4 +45,3 @@ int main() {
 
     return 0;
 }
-

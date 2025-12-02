@@ -38,7 +38,7 @@ int main(void) {
 
     // Aufruf der Funktion
     if (is_in(gesucht, feld, &index)) {
-        printf("Gefunden! Erste Position: %d\n", index);
+        printf("Gefunden! Erste Position: %d\n", index+1);
     } else {
         printf("Nicht gefunden.\n");
     }

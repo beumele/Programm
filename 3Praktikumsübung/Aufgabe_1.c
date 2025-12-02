@@ -30,6 +30,6 @@ int main(void)
     int x = BinKo_fak(5,3);
     int z = BioKo_Nofak(5,3);
     printf("%d\n",x);
-    printf("%d",z);
+    printf("%d\n",z);
 }
 

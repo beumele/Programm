@@ -1,0 +1,1 @@
+Die Summe der Zahlen ist: 12

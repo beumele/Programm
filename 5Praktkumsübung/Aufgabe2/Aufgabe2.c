@@ -3,6 +3,8 @@
 int main(void) {
     const char* filename = "Text.txt";
     FILE* file = fopen(filename, "r");
+    FILE* output = fopen("output.txt", "w");
+    
 
     if (file == NULL) {
         perror("Fehler beim Öffnen der Datei");
@@ -18,11 +20,12 @@ int main(void) {
 
         // Leerzeichen, Tabs und Zeilenumbrüche überspringen
         if (c != ' ' && c != '\n' && c != '\t') {
-            printf("%c", c);  // Zeichen ausgeben
+            fputc(c,output);  // Zeichen ausgeben
         }
     }
 
     fclose(file);
+    fclose(output);
     printf("\n");  // Am Ende einen Zeilenumbruch
     return 0;
 }
